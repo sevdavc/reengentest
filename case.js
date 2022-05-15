@@ -507,7 +507,7 @@ function FilteringanExistingDatawithTwoAttribute_Test() {
   if (foundData.length === 1) {
     ///We know the length for testing
     for (let i = 0; i < foundData.length; i++) {
-      if (foundData[i].quantity !== 15) {
+      if (foundData[i].name !== "Apple" && foundData[i].quantity !== 15) {
         console.log("Filtering an Existing Data with Two Attribute = Fail");
         return;
       }
@@ -533,14 +533,7 @@ function FilteringwithOneTrueandOneFalseAttribute_Test() {
     name: "Apple",
     quantity: 20,
   });
-  if (foundData.length === 1) {
-    ///We know the length for testing
-    for (let i = 0; i < foundData.length; i++) {
-      if (foundData[i].quantity !== 15) {
-        console.log("Filtering with One True and One False Attribute = Fail");
-        return;
-      }
-    }
+  if (foundData.length > 0) {
     console.log("Filtering with One True and One False Attribute = Pass");
   } else {
     console.log("Filtering with One True and One False Attribute = Fail");
@@ -562,14 +555,7 @@ function FilteringwithOneFalseandOneTrueAttribute_Test() {
     name: "Strawberry",
     quantity: 15,
   });
-  if (foundData.length === 1) {
-    ///We know the length for testing
-    for (let i = 0; i < foundData.length; i++) {
-      if (foundData[i].quantity !== 15) {
-        console.log("Filtering with One False and One True Attribute = Fail");
-        return;
-      }
-    }
+  if (foundData.length > 0) {
     console.log("Filtering with One False and One True Attribute = Pass");
   } else {
     console.log("Filtering with One False and One True Attribute = Fail");
@@ -591,14 +577,7 @@ function FilteringNonexistentDatawithTwoAttributes_Test() {
     name: "Strawberry",
     quantity: 40,
   });
-  if (foundData.length === 1) {
-    ///We know the length for testing
-    for (let i = 0; i < foundData.length; i++) {
-      if (foundData[i].quantity !== 15) {
-        console.log("Filtering Nonexistent Data with Two Attributes = Fail");
-        return;
-      }
-    }
+  if (foundData.length > 0) {
     console.log("Filtering Nonexistent Data with Two Attributes = Pass");
   } else {
     console.log("Filtering Nonexistent Data with Two Attributes = Fail");
