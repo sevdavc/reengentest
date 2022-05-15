@@ -142,7 +142,7 @@ TABLE.prototype.filterRecords = function (filter) {
   return matches;
 };
 
-///Tests
+///*************************Tests*******************************************
 
 var database = new DB();
 //Checks if the database can be created
