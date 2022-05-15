@@ -154,6 +154,7 @@ function CreatingADatabase_Test() {
   }
 }
 
+//Checks if multiple databases can be created
 function CreatingMultipleDatabases_Test() {
   var second_database = new DB();
   if (
@@ -168,6 +169,7 @@ function CreatingMultipleDatabases_Test() {
   }
 }
 
+//Checks if a table can be created in a database
 function CreatingATable_Test() {
   database.createTable("fruit", { name: "string", quantity: "int" });
   if (database.tables["fruit"]) {
@@ -177,6 +179,7 @@ function CreatingATable_Test() {
   }
 }
 
+//Checks if multiple tables can be created in a database
 function CreatingMultipleTables_Test() {
   database.createTable("fruit", { name: "string", quantity: "int" });
   database.createTable("vegetable", { name: "string", quantity: "int" });
@@ -188,6 +191,7 @@ function CreatingMultipleTables_Test() {
   }
 }
 
+//Checks if a table can be created with one attribute
 function CreatingATablewithOneAttribute_Test() {
   database.createTable("fruit", { name: "string" });
   if (database.tables["fruit"]) {
@@ -197,6 +201,7 @@ function CreatingATablewithOneAttribute_Test() {
   }
 }
 
+//Checks if a table can be created with multiple attributes
 function CreatingATablewithMultipleAttributes_Test() {
   database.createTable("fruit", {
     name: "string",
@@ -210,6 +215,7 @@ function CreatingATablewithMultipleAttributes_Test() {
   }
 }
 
+//Checks if a table can be created with float typed attribute
 function CreatingATablewithFloatTypedAttribute_Test() {
   database.createTable("fruit", { name: "string", cost: "float" });
   if (database.tables["fruit"]) {
@@ -219,6 +225,8 @@ function CreatingATablewithFloatTypedAttribute_Test() {
   }
 }
 
+//Checks if a value can be added to the table with positive values
+//Boundary Value Testing
 function AddingthePositiveIntegerValuetotheTable_Test() {
   database.createTable("fruit", { name: "string", quantity: "int" });
   var data998 = database.tables["fruit"].insertRecords({
@@ -250,6 +258,8 @@ function AddingthePositiveIntegerValuetotheTable_Test() {
   }
 }
 
+//Checks if a value can be added to the table with negative values
+//Boundary Value Testing
 function AddingtheNegativeIntegerValuetotheTable_Test() {
   database.createTable("fruit", { name: "string", quantity: "int" });
   var data_998 = database.tables["fruit"].insertRecords({
@@ -281,6 +291,8 @@ function AddingtheNegativeIntegerValuetotheTable_Test() {
   }
 }
 
+//Checks if a string's length can affect the addition
+//Boundary Value Testing
 function AddingtheStringValuestotheTable_Test() {
   database.createTable("fruit", { name: "string", quantity: "int" });
   var characterlong_254 = database.tables["fruit"].insertRecords({
@@ -312,6 +324,7 @@ function AddingtheStringValuestotheTable_Test() {
   }
 }
 
+//Checks if all wrong values can be added to the table
 function AddingtheAllWrongValuestotheTable_Test() {
   database.createTable("fruit", { name: "string", quantity: "int" });
   var data = database.tables["fruit"].insertRecords({
@@ -325,6 +338,7 @@ function AddingtheAllWrongValuestotheTable_Test() {
   }
 }
 
+//Checks if all wrong attributes can be added to the table
 function AddingADataWithWrongAttributes_Test() {
   database.createTable("fruit", { name: "string", quantity: "int" });
   var data = database.tables["fruit"].insertRecords({
@@ -338,6 +352,7 @@ function AddingADataWithWrongAttributes_Test() {
   }
 }
 
+//Checks if all records can be listed
 function GettingAlltheRecordsofATable_Test() {
   database.createTable("fruit", { name: "string", quantity: "int" });
   database.tables["fruit"].insertRecords({
@@ -358,6 +373,7 @@ function GettingAlltheRecordsofATable_Test() {
   }
 }
 
+//Checks if an existing string data can be filtered
 function FilteringanExistingStringData_Test() {
   database.createTable("fruit", { name: "string", quantity: "int" });
   database.tables["fruit"].insertRecords({
@@ -383,6 +399,7 @@ function FilteringanExistingStringData_Test() {
   }
 }
 
+//Checks if a nonexistent string data can be filtered
 function FilteringaNonexistentStringData_Test() {
   database.createTable("fruit", { name: "string", quantity: "int" });
   database.tables["fruit"].insertRecords({
@@ -404,6 +421,7 @@ function FilteringaNonexistentStringData_Test() {
   }
 }
 
+//Checks if an existing integer data can be filtered
 function FilteringanExistingIntegerData_Test() {
   database.createTable("fruit", { name: "string", quantity: "int" });
   database.tables["fruit"].insertRecords({
@@ -429,6 +447,7 @@ function FilteringanExistingIntegerData_Test() {
   }
 }
 
+//Checks if a nonexistent integer data can be filtered
 function FilteringaNonexistentIntegerData_Test() {
   database.createTable("fruit", { name: "string", quantity: "int" });
   database.tables["fruit"].insertRecords({
@@ -449,6 +468,7 @@ function FilteringaNonexistentIntegerData_Test() {
   }
 }
 
+//Checks if a nonexistent attribute can be filtered
 function FilteringaNonexistentAttribute_Test() {
   database.createTable("fruit", { name: "string", quantity: "int" });
   database.tables["fruit"].insertRecords({
@@ -469,6 +489,7 @@ function FilteringaNonexistentAttribute_Test() {
   }
 }
 
+//Checks if an existing data with two attribute can be filtered
 function FilteringanExistingDatawithTwoAttribute_Test() {
   database.createTable("fruit", { name: "string", quantity: "int" });
   database.tables["fruit"].insertRecords({
@@ -497,6 +518,7 @@ function FilteringanExistingDatawithTwoAttribute_Test() {
   }
 }
 
+//Checks if a data with one true and one false value can be filtered (Name true, quantity false)
 function FilteringwithOneTrueandOneFalseAttribute_Test() {
   database.createTable("fruit", { name: "string", quantity: "int" });
   database.tables["fruit"].insertRecords({
@@ -525,6 +547,7 @@ function FilteringwithOneTrueandOneFalseAttribute_Test() {
   }
 }
 
+//Checks if a data with one true and one false value can be filtered (Name false, quantity true)
 function FilteringwithOneFalseandOneTrueAttribute_Test() {
   database.createTable("fruit", { name: "string", quantity: "int" });
   database.tables["fruit"].insertRecords({
@@ -553,6 +576,7 @@ function FilteringwithOneFalseandOneTrueAttribute_Test() {
   }
 }
 
+//Checks if a nonexistent data with two attributes can be filtered
 function FilteringNonexistentDatawithTwoAttributes_Test() {
   database.createTable("fruit", { name: "string", quantity: "int" });
   database.tables["fruit"].insertRecords({
